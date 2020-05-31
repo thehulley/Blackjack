@@ -1,1 +1,1 @@
-# blackjack
+# Projeto COM110 - Blackjack
