@@ -33,7 +33,7 @@ int main(void)
         break;
 
         case 3:
-        printf("a");
+        printf("Obrigado por Jogar!");
         break;
 
         default:
