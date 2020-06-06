@@ -3,7 +3,7 @@
 
 int main ()
 {
-    char nome[10], pontuacao[4], rodadas[3], ranking[17], i=1;
+    char nome[10], pontuacao[4], rodadas[3], ranking[200], i=1;
 
     while (i<=10)  //COLETA AS INFORMAÇÕES, AS STRINGS NO CASO
     {
@@ -29,7 +29,7 @@ int main ()
 
         printf ("%s", ranking);
 
-        i += 5;
+        i += 1;
     }
     
     FILE *fp;;
