@@ -87,7 +87,7 @@ int main (void) {
 
             if ((mais_uma == 'N' || mais_uma == 'n') && (p.player_pontos < 17))
             {
-                printf ("\nVocê não pode parar enquanto seus pontos forem menores que 17\n\n");
+                printf ("\nVocê não pode parar enquanto seus pontos forem menores que 17\nPortanto o programa irá solicitar uma nova carta\n\n");
                 mais_uma = 'S';
             }  
         }   
