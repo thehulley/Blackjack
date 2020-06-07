@@ -17,7 +17,8 @@ int main(void)
     printf("================================================================\n");
     printf("|                          1-JOGAR                             |\n");
     printf("|                          2-RANKING                           |\n");
-    printf("|                          3-SAIR                              |\n");
+    printf("|                          3-REGRAS                            |\n");
+    printf("|                          4-SAIR                              |\n");
     printf("================================================================\n");
     printf("Digite sua escolha: ");
     scanf(" %d", &escolha_menu);
@@ -31,8 +32,12 @@ int main(void)
         case 2:
         printf("a");
         break;
-
+        
         case 3:
+        printf("a");
+        break;
+
+        case 4:
         printf("Obrigado por Jogar!");
         break;
 
