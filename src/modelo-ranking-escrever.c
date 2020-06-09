@@ -21,11 +21,9 @@ int main ()
             strcat (ranking, pontuacao);
         }
 
-        strcat (ranking, "|");
         strcat (ranking, rodadas);
-        strcat (ranking, "|");
         strcat (ranking, nome);
-        strcat (ranking, "\n");
+        strcat (ranking, "|");
 
         printf ("%s", ranking);
 
