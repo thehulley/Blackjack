@@ -187,6 +187,7 @@ int main(void) // FUNÇÃO PRINCIPAL
     while (escolha_menu != 4){
 
         system ("clear"); //SE PRECISAR OLHAR OS ERROS NO TERMINAL, APAGUE ISSO
+        escolha_menu = 0;
 
         setlocale(LC_ALL, "Portuguese");
         printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
@@ -244,11 +245,10 @@ int main(void) // FUNÇÃO PRINCIPAL
             break;
 
             case 4:
-            printf("\n\nObrigado por Jogar!\n\n");
+            system ("clear");
+            printf ("\n\nObrigado por Jogar!\n\n");
             break;
         }
-
-        escolha_menu = 0;
     }
 
     system("pause");
