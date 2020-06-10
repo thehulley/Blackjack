@@ -67,7 +67,7 @@ int main (void) {
                 printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
                 if (carta == 10 || carta == 11)
                 {
-                    printf ("█ 10            █\n");
+                    printf ("█ %d            █\n", carta);
                 }
                 else
                 {
@@ -82,7 +82,7 @@ int main (void) {
                 printf ("█             ♠ █\n");
                 if (carta == 10 || carta == 11)
                 {
-                    printf ("█            10 █\n");
+                    printf ("█            %d █\n", carta);
                 }
                 else
                 {
@@ -95,7 +95,7 @@ int main (void) {
                 printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
                 if (carta == 10 || carta == 11)
                 {
-                    printf ("█ 10            █\n");
+                    printf ("█ %d            █\n", carta);
                 }
                 else
                 {
@@ -110,7 +110,7 @@ int main (void) {
                 printf ("█             ♣ █\n");
                 if (carta == 10 || carta == 11)
                 {
-                    printf ("█            10 █\n");
+                    printf ("█            %d █\n", carta);
                 }
                 else
                 {
@@ -123,7 +123,7 @@ int main (void) {
                 printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
                 if (carta == 10 || carta == 11)
                 {
-                    printf ("█ 10            █\n");
+                    printf ("█ %d            █\n", carta);
                 }
                 else
                 {
@@ -138,7 +138,7 @@ int main (void) {
                 printf ("█             ♥ █\n");
                 if (carta == 10 || carta == 11)
                 {
-                    printf ("█            10 █\n");
+                    printf ("█            %d █\n", carta);
                 }
                 else
                 {
@@ -151,7 +151,7 @@ int main (void) {
                 printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
                 if (carta == 10 || carta == 11)
                 {
-                    printf ("█ 10            █\n");
+                    printf ("█ %d            █\n", carta);
                 }
                 else
                 {
@@ -166,7 +166,7 @@ int main (void) {
                 printf ("█             ♦ █\n");
                 if (carta == 10 || carta == 11)
                 {
-                    printf ("█            10 █\n");
+                    printf ("█            %d █\n", carta);
                 }
                 else
                 {
@@ -186,137 +186,159 @@ int main (void) {
         }   
     } while (mais_uma == 'S' || mais_uma == 's');
 
+    p.pc_pontos = 0;
+    printf("\n\n");
     //COÓDIGO DO PC
-    if (p.player_pontos < 21)
+    while (p.player_pontos < 21)
     {
-        do
+
+        //CARTAS DO PC
+        carta = baralho[rand() % 12];
+        if (carta == 1)
         {
-            carta = baralho[rand() %12];
-            i = rand() % 3;
-            if (i == 0)
+            if (p.pc_pontos + 11 < 21)
             {
-                printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
-                if (carta == 10 || carta == 11)
-                {
-                    printf ("█ 10            █\n");
-                }
-                else
-                {
-                    printf ("█ %d             █\n", carta);
-                }
-                printf ("█ ♠             █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█             ♠ █\n");
-                if (carta == 10 || carta == 11)
-                {
-                    printf ("█            10 █\n");
-                }
-                else
-                {
-                    printf ("█             %d █\n", carta);
-                }
-                printf ("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n\n");
+                carta = 11;
             }
-            else if (i == 1)
+            else
             {
-                printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
-                if (carta == 10 || carta == 11)
-                {
-                    printf ("█ 10            █\n");
-                }
-                else
-                {
-                    printf ("█ %d             █\n", carta);
-                }
-                printf ("█ ♣             █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█             ♣ █\n");
-                if (carta == 10 || carta == 11)
-                {
-                    printf ("█            10 █\n");
-                }
-                else
-                {
-                    printf ("█             %d █\n", carta);
-                }
-                printf ("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n\n");
+                carta == 1;
             }
-            else if (i == 2)
+        }
+        
+        //SORTEIO DE NAIPES
+        i = rand() % 3;
+        if (i == 0)
+        {
+            printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
+            if (carta == 10 || carta == 11)
             {
-                printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
-                if (carta == 10 || carta == 11)
-                {
-                    printf ("█ 10            █\n");
-                }
-                else
-                {
-                    printf ("█ %d             █\n", carta);
-                }
-                printf ("█ ♥             █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█             ♥ █\n");
-                if (carta == 10 || carta == 11)
-                {
-                    printf ("█            10 █\n");
-                }
-                else
-                {
-                    printf ("█             %d █\n", carta);
-                }
-                printf ("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n\n");
+                printf ("█ %d            █\n", carta);
             }
-            else if (i == 3)
+            else
             {
-                printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
-                if (carta == 10 || carta == 11)
-                {
-                    printf ("█ 10            █\n");
-                }
-                else
-                {
-                    printf ("█ %d             █\n", carta);
-                }
-                printf ("█ ♦             █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█               █\n");
-                printf ("█             ♦ █\n");
-                if (carta == 10 || carta == 11)
-                {
-                    printf ("█            10 █\n");
-                }
-                else
-                {
-                    printf ("█             %d █\n", carta);
-                }
-                printf ("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n\n");
-                p.pc_pontos += carta;
-                if (p.pc_pontos == 21)
-                {
-                    printf("21 Você Perdeu!! Ha Ha.\n");
-                    break;
-                }
-                if (p.pc_pontos > 21)
-                {
-                    printf("Estourei, você ganhou a rodada. :(\n");
-                }
-                
+                printf ("█ %d             █\n", carta);
             }
-        } while (p.pc_pontos < 21);
+            printf ("█ ♠             █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█             ♠ █\n");
+            if (carta == 10 || carta == 11)
+            {
+                printf ("█            %d █\n", carta);
+            }
+            else
+            {
+                printf ("█             %d █\n", carta);
+            }
+            printf ("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n\n");
+        }
+        else if (i == 1)
+        {
+            printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
+            if (carta == 10 || carta == 11)
+            {
+                printf ("█ %d            █\n", carta);
+            }
+            else
+            {
+                printf ("█ %d             █\n", carta);
+            }
+            printf ("█ ♣             █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█             ♣ █\n");
+            if (carta == 10 || carta == 11)
+            {
+                printf ("█            %d █\n", carta);
+            }
+            else
+            {
+                printf ("█             %d █\n", carta);
+            }
+            printf ("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n\n");
+        }
+        else if (i == 2)
+        {
+            printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
+            if (carta == 10 || carta == 11)
+            {
+                printf ("█ %d            █\n", carta);
+            }
+            else
+            {
+                printf ("█ %d             █\n", carta);
+            }
+            printf ("█ ♥             █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█             ♥ █\n");
+            if (carta == 10 || carta == 11)
+            {
+                printf ("█            %d █\n", carta);
+            }
+            else
+            {
+                printf ("█             %d █\n", carta);
+            }
+            printf ("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n\n");
+        }
+        else if (i == 3)
+        {
+            printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
+            if (carta == 10 || carta == 11)
+            {
+                printf ("█ %d            █\n", carta);
+            }
+            else
+            {
+                printf ("█ %d             █\n", carta);
+            }
+            printf ("█ ♦             █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█               █\n");
+            printf ("█             ♦ █\n");
+            if (carta == 10 || carta == 11)
+            {
+                printf ("█            %d █\n", carta);
+            }
+            else
+            {
+                printf ("█             %d █\n", carta);
+            }
+            printf ("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n\n");
+        }
+
+        p.pc_pontos += carta;
+
+        if (p.pc_pontos == 21)
+        {
+            printf("Vinte e Um. Genhei!!\n");
+            break;
+        }
+        else if (p.pc_pontos > 21)
+        {
+            printf("Estourei! Você venceu. :(\n");
+            break;
+        }
+        else if (p.pc_pontos < 21 && p.pc_pontos > p.player_pontos)
+        {
+            printf("Venci!!");
+            break;
+        }
+        
     }
     
     system("pause");
