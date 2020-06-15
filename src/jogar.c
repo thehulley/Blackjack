@@ -6,6 +6,7 @@
 struct pontos
 {
     int player_pontos, pc_pontos, rankig_pontos;
+    int placar_player, placar_bot;
 };
 
 
@@ -19,12 +20,15 @@ int main (void) {
     srand(time(NULL));
 
     struct pontos p; //CHAMA AS VARIÁVEIS DE PONTOS
-    p.rankig_pontos = 0;
+    p.rankig_pontos = p.placar_bot = p.placar_player = 0;
     for (rodada = 0; rodada < 10; rodada++)
     {
         p.pc_pontos = 0;
         p.player_pontos = 0;
-        printf("\n\n============ RODADA %d ============\n\n", rodada + 1);
+        printf("\n\n===================================================\n");
+        printf("|                    RODADA %d                     |\n", rodada + 1);
+        printf("|             Player [%d] x [%d] Bot                |\n", p.placar_player, p.placar_bot);
+        printf("===================================================\n\n");
         //CARTAS DO PLAYER
         do
         {
@@ -337,7 +341,7 @@ int main (void) {
 
             if (p.pc_pontos == 21)
             {
-                printf("Vinte e Um. Ganhei!!\n");
+                printf("A soma dos pontos deu Vinte e Um. Ganhei!! :D\n");
                 break;
             }
             else if (p.pc_pontos > 21)
@@ -347,31 +351,42 @@ int main (void) {
             }
             else if (p.pc_pontos < 21 && p.pc_pontos > p.player_pontos)
             {
-                printf("Venci!!");
+                printf("Fiz mais pontos que você. Venci!! :D");
                 break;
             }
             
         }
+        
         //PONTOS PARA O RANKING
         if (p.player_pontos > p.pc_pontos && p.player_pontos == 21)
         {
             p.rankig_pontos += 5;
+            p.placar_player += 1;
         }
         else if (p.player_pontos > p.pc_pontos && p.player_pontos == 20)
         {
             p.rankig_pontos += 4;
+            p.placar_player += 1;
         }
         else if (p.player_pontos > p.pc_pontos && p.player_pontos == 19)
         {
             p.rankig_pontos += 3;
+            p.placar_player += 1;
         }
         else if (p.player_pontos > p.pc_pontos && p.player_pontos == 18)
         {
             p.rankig_pontos += 2;
+            p.placar_player += 1;
         }
         else if (p.player_pontos > p.pc_pontos && p.player_pontos <= 17)
         {
             p.rankig_pontos += 1;
+            p.placar_player += 1;
+        }
+        //ADICIONA O PLACAR DO BOT
+        else if (p.player_pontos < p.pc_pontos && p.pc_pontos < 22)
+        {
+            p.placar_bot += 1;
         }
     }
     system("pause");
