@@ -32,13 +32,13 @@ int main (void) {
             //CASO O ÁS SEJA SORTEADO
             if (carta == 1)
             {
-                printf("Escolha o valor [1] ou [11]:");
+                printf("Você tirou o ás!\n\n Escolha o valor [1] ou [11]: ");
                 scanf(" %d", &escolha_as);
 
                 while (escolha_as != 1 && escolha_as != 11)
                 {
-                    printf("Escolha inválida. Tente novamente!\n");
-                    printf("Escolha o valor [1] ou [11]:");
+                    printf("\nEscolha inválida. Tente novamente!\n\n");
+                    printf("Você tirou o ás!\n\n Escolha o valor [1] ou [11]: ");
                     scanf(" %d", &escolha_as);
                 }
 
@@ -60,7 +60,7 @@ int main (void) {
             }
             else if (p.player_pontos > 21)
             {
-                printf("Você estorou! :(\n");
+                printf("\n\nA soma das cartas foi maior que 21! \n\n Você estorou! :(\n");
                 break;
             }
             else
@@ -208,15 +208,19 @@ int main (void) {
                 }
                 else
                 {
-                    carta == 1;
+                    carta = 1;
                 }
             }
+                    printf("Eu tirei a carta:\n\n");
+
             
             //SORTEIO DE NAIPES
             i = rand() % 3;
             if (i == 0)
             {
-                printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
+
+                
+                printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n\n");
                 if (carta == 10 || carta == 11)
                 {
                     printf ("█ %d            █\n", carta);
@@ -333,7 +337,7 @@ int main (void) {
 
             if (p.pc_pontos == 21)
             {
-                printf("Vinte e Um. Genhei!!\n");
+                printf("Vinte e Um. Ganhei!!\n");
                 break;
             }
             else if (p.pc_pontos > 21)
