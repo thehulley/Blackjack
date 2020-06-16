@@ -134,7 +134,7 @@ int naipes (int carta) {
 
 int main (void) {
     int baralho[13] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10}, carta;
-    int i, rodada, escolha_as;
+    int rodada, escolha_as;
     char mais_uma;
 
     setlocale(LC_ALL, "pt-br");
