@@ -357,36 +357,44 @@ int main (void) {
             
         }
         
+        //PLCAR DA RODADA
+        if (p.player_pontos > 21)
+        {
+            p.placar_bot++;
+        }
+        else if (p.pc_pontos > 21)
+        {
+            p.placar_player++;
+        }
+        else if (p.pc_pontos > p.player_pontos && p.pc_pontos <= 21)
+        {
+            p.placar_bot++;
+        }
+        else if (p.player_pontos > p.pc_pontos && p.player_pontos <= 21)
+        {
+            p.placar_player++;
+        }
+        
         //PONTOS PARA O RANKING
         if (p.player_pontos > p.pc_pontos && p.player_pontos == 21)
         {
             p.rankig_pontos += 5;
-            p.placar_player += 1;
         }
         else if (p.player_pontos > p.pc_pontos && p.player_pontos == 20)
         {
             p.rankig_pontos += 4;
-            p.placar_player += 1;
         }
         else if (p.player_pontos > p.pc_pontos && p.player_pontos == 19)
         {
             p.rankig_pontos += 3;
-            p.placar_player += 1;
         }
         else if (p.player_pontos > p.pc_pontos && p.player_pontos == 18)
         {
             p.rankig_pontos += 2;
-            p.placar_player += 1;
         }
         else if (p.player_pontos > p.pc_pontos && p.player_pontos <= 17)
         {
             p.rankig_pontos += 1;
-            p.placar_player += 1;
-        }
-        //ADICIONA O PLACAR DO BOT
-        else if (p.player_pontos < p.pc_pontos && p.pc_pontos < 22)
-        {
-            p.placar_bot += 1;
         }
     }
     system("pause");
