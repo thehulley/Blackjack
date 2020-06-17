@@ -46,12 +46,12 @@ int regras() // FUNÇÃO PARA NÃO POLUIR O CÓDIGO PRINCIPAL
     printf ("█                                                                             █\n");
     printf ("█  Ranking e pontuação por rodada:                                            █\n");
     printf ("█                                                                             █\n");
-    printf ("█  Se ocorrer do jogador perder, a quantidade de rodadas vencidas juntamente  █\n");
-    printf ("█  com pontuação total será adicionada ao ranking inicial (apresentada no     █\n");
-    printf ("█  menu), sendo que a classificação será baseada na pontuação total do        █\n");
-    printf ("█  jogador. Caso o jogador ganhe será adicionada a sua pontuação total uma    █\n");
-    printf ("█  pontuação X que será definida com base em uma das situações citadas        █\n");
-    printf ("█  abaixo.                                                                    █\n");
+    printf ("█  Se ocorrer do jogador perder (e o mesmo tenha pontuação suficiente para    █\n");
+    printf ("█  entrar no ranking), o seu nome juntamente com sua pontuação total serão    █\n");
+    printf ("█  adicionadas ao ranking inicial (apresentada no menu), sendo que a          █\n");
+    printf ("█  classificação será baseada na pontuação total do jogador.                  █\n");
+    printf ("█  Caso o jogador ganhe será adicionada a sua pontuação total uma pontuação   █\n");
+    printf ("█  X que será definida com base em uma das situações citadas abaixo.          █\n");
     printf ("█                                                                             █\n");
     printf ("█  ● 1 ponto – Se o jogador tiver um total de cartas somadas totalizando 17.  █\n");
     printf ("█  ● 2 ponto – Se o jogador tiver um total de cartas somadas totalizando 18.  █\n");
@@ -302,7 +302,7 @@ int main(void) // FUNÇÃO PRINCIPAL
 {
     int escolha_menu, sair_outros_menus, i, pontos;
     int baralho[13] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10}, carta, rodada, escolha_as;
-    char p[2], c, mais_uma, nome[5];
+    char n[2], c, mais_uma, nome[5];
 
     escolha_menu = 0;
 
@@ -337,9 +337,9 @@ int main(void) // FUNÇÃO PRINCIPAL
         
         while (escolha_menu < 1 || escolha_menu > 4){
             printf("Digite sua escolha: ");
-            scanf(" %s", p);
+            scanf("%s", n);
 
-            escolha_menu = atoi(p);
+            escolha_menu = atoi(n);
 
             if (escolha_menu < 1 || escolha_menu > 4){
                 printf("\nResposta Inválida\n\n");
@@ -372,13 +372,17 @@ int main(void) // FUNÇÃO PRINCIPAL
                     if (carta == 1)
                     {
                         printf("Você tirou o ás!\n\nEscolha o valor [1] ou [11]: ");
-                        scanf(" %d", &escolha_as);
+                        scanf(" %s", n);
+
+                        escolha_as = atoi(n);
 
                         while (escolha_as != 1 && escolha_as != 11)
                         {
                             printf("\nEscolha inválida. Tente novamente!\n\n");
-                            printf("Você tirou o ás!\n\n Escolha o valor [1] ou [11]: ");
-                            scanf(" %d", &escolha_as);
+                            printf("Você tirou o ás!\n\nEscolha o valor [1] ou [11]: ");
+                            scanf(" %s", n);
+
+                            escolha_as = atoi(n);
                         }
 
                         if (escolha_as == 1)
