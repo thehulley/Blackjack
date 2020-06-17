@@ -4,6 +4,12 @@
 #include <time.h>
 #include <string.h>
 
+
+/*
+    Preview em https://repl.it/@hulley/main-blackjack#main.c
+*/
+
+
 char *mat[5][2];
 
 struct pontos
