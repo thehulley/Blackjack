@@ -193,7 +193,8 @@ int main (void) {
             else
             {
                 printf("\n\nVocê tirou a carta:\n\n");
-
+                
+                //IMPRIME AS CARTAS
                 naipes(carta);
 
                 //VERIFICA SE VAI HAVER UMA CONTINUIDADE
@@ -228,6 +229,7 @@ int main (void) {
             }
                     printf("Eu tirei a carta:\n\n");
 
+            //IMPRIME AS CARTAS
             naipes(carta);
 
             p.pc_pontos += carta;
@@ -290,6 +292,17 @@ int main (void) {
             p.rankig_pontos += 1;
         }
     }
-    system("pause");
+    //INFORMA SE VENCEU A PARTIDA
+    if (p.placar_player > p.placar_bot)
+    {
+        printf("Placar Final -> Player [%d] x Bot [%d]", p.placar_player, p.placar_bot);
+        printf("\n\nParabéns, você venceu a partida!!\n\n");
+    }
+    else
+    {
+        printf("Placar Final -> Player [%d] x Bot [%d]", p.placar_player, p.placar_bot);
+        printf("\n\nVocê perdeu a partida tente novamente.\n\n");
+    }
+    
     return 0;
 }
