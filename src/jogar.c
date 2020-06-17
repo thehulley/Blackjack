@@ -295,12 +295,12 @@ int main (void) {
     //INFORMA SE VENCEU A PARTIDA
     if (p.placar_player > p.placar_bot)
     {
-        printf("Placar Final -> Player [%d] x Bot [%d]", p.placar_player, p.placar_bot);
+        printf("Placar Final -> Player [%d] x Bot [%d]\n", p.placar_player, p.placar_bot);
         printf("\n\nParabéns, você venceu a partida!!\n\n");
     }
     else
     {
-        printf("Placar Final -> Player [%d] x Bot [%d]", p.placar_player, p.placar_bot);
+        printf("Placar Final -> Player [%d] x Bot [%d]\n", p.placar_player, p.placar_bot);
         printf("\n\nVocê perdeu a partida tente novamente.\n\n");
     }
     
