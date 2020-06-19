@@ -6,7 +6,7 @@
 
 
 /*
-    Preview em https://repl.it/@hulley/main-blackjack#main.c
+    Preview em https://repl.it/@hulley/teste#main.c
 */
 
 
