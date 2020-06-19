@@ -202,7 +202,7 @@ int main(void) // FUNÇÃO PRINCIPAL
 
     while (escolha_menu != 4){
 
-        system (""); //SE PRECISAR OLHAR OS ERROS NO TERMINAL, APAGUE ISSO
+        system ("clear"); //SE PRECISAR OLHAR OS ERROS NO TERMINAL, APAGUE ISSO
         escolha_menu = 0;
 
         setlocale(LC_ALL, "Portuguese");
