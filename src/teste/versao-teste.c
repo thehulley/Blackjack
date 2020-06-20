@@ -65,13 +65,14 @@ int regras() // FUNÇÃO PARA NÃO POLUIR O CÓDIGO PRINCIPAL
 }
 
 int naipes (int carta) {
-    int i = 0;
+    int i = 0, x = 0;
     char naipes[4][4] = {"♠", "♣", "♥", "♦"};
     char valor_carta[4][2] = {"Q", "J", "K"};
     srand(time(NULL));
 
     //SORTEIO DE NAIPES
     i = rand() % 3;
+    x = rand() % 4;
 
     printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
     if (carta == 10 || carta == 11 || carta == 1) {
@@ -94,13 +95,13 @@ int naipes (int carta) {
         {
             printf ("█ %d             █\n", carta);
         }
-    printf ("█ %s             █\n", naipes[i]);
+    printf ("█ %s             █\n", naipes[x]);
     printf ("█               █\n");
     printf ("█               █\n");
     printf ("█               █\n");
     printf ("█               █\n");
     printf ("█               █\n");
-    printf ("█             %s █\n", naipes[i]);
+    printf ("█             %s █\n", naipes[x]);
     if (carta == 10 || carta == 11 || carta == 1) {
             if (carta == 10)
             {
