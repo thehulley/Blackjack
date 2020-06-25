@@ -71,7 +71,7 @@ int naipes (int carta) {
     srand(time(NULL));
 
     //SORTEIO DE NAIPES
-    i = rand() % 3;
+    i = rand() % 4;
     x = rand() % 4;
 
     printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
