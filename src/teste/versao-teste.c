@@ -12,6 +12,7 @@
 
 char *mat[5][3];
 
+//VARIÁVEIS DE PONTOS DA PARTIDA E RODADA
 struct pontos
 {
     int player_pontos, pc_pontos, rankig_pontos;
@@ -64,6 +65,7 @@ int regras() // FUNÇÃO PARA NÃO POLUIR O CÓDIGO PRINCIPAL
     return 0;
 }
 
+//IMPRIME AS CARTAS SORTEADAS
 int naipes (int carta) {
     int i = 0, x = 0;
     char naipes[4][4] = {"♠", "♣", "♥", "♦"};
