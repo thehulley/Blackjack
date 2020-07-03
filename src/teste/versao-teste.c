@@ -15,7 +15,7 @@ char *mat[5][3];
 //VARIÁVEIS DE PONTOS DA PARTIDA E RODADA
 struct pontos
 {
-    int player_pontos, pc_pontos, rankig_pontos;
+    int player_pontos, pc_pontos, ranking_pontos;
     int placar_player, placar_bot;
 };
 
@@ -193,7 +193,7 @@ int main(void) // FUNÇÃO PRINCIPAL
             srand(time(NULL));
 
             struct pontos p; //CHAMA AS VARIÁVEIS DE PONTOS
-            p.rankig_pontos = p.placar_bot = p.placar_player = 0;
+            p.ranking_pontos = p.placar_bot = p.placar_player = 0;
             for (rodada = 0; rodada < 10; rodada++)
             {
                 p.pc_pontos = 0;
@@ -286,7 +286,7 @@ int main(void) // FUNÇÃO PRINCIPAL
                             carta = 1;
                         }
                     }
-                            printf("Eu tirei a carta:\n\n");
+                    printf("Eu tirei a carta:\n\n");
 
                     naipes(carta);
 
@@ -328,25 +328,28 @@ int main(void) // FUNÇÃO PRINCIPAL
                 }
                 
                 //PONTOS PARA O RANKING
-                if (p.player_pontos > p.pc_pontos && p.player_pontos == 21)
+                if (p.player_pontos > p.pc_pontos || p.pc_pontos > 21)
                 {
-                    p.rankig_pontos += 5;
-                }
-                else if (p.player_pontos > p.pc_pontos && p.player_pontos == 20)
-                {
-                    p.rankig_pontos += 4;
-                }
-                else if (p.player_pontos > p.pc_pontos && p.player_pontos == 19)
-                {
-                    p.rankig_pontos += 3;
-                }
-                else if (p.player_pontos > p.pc_pontos && p.player_pontos == 18)
-                {
-                    p.rankig_pontos += 2;
-                }
-                else if (p.player_pontos > p.pc_pontos && p.player_pontos <= 17)
-                {
-                    p.rankig_pontos += 1;
+                    if (p.player_pontos == 21)
+                    {
+                        p.ranking_pontos += 5;
+                    }
+                    else if (p.player_pontos == 20)
+                    {
+                        p.ranking_pontos += 4;
+                    }
+                    else if (p.player_pontos == 19)
+                    {
+                        p.ranking_pontos += 3;
+                    }
+                    else if (p.player_pontos == 18)
+                    {
+                        p.ranking_pontos += 2;
+                    }
+                    else if (p.player_pontos == 17)
+                    {
+                        p.ranking_pontos += 1;
+                    }
                 }
             }
 
