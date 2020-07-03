@@ -1,0 +1,2 @@
+Não altere esse arquivo! Alteração do mesmo poderá ocasionar no mau funcionamento do mesmo
+|1-00-000-aaaaa|2-00-000-aaaaa|3-00-000-aaaaa|4-00-000-aaaaa|5-00-000-aaaaa|
