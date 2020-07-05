@@ -363,7 +363,7 @@ int main(void) // FUNÇÃO PRINCIPAL
 
             struct pontos p; //CHAMA AS VARIÁVEIS DE PONTOS
             p.ranking_pontos = p.placar_bot = p.placar_player = 0;
-            for (rodada = 0; rodada < 2; rodada++)
+            for (rodada = 0; rodada < 10; rodada++)
             {
                 p.pc_pontos = 0;
                 p.player_pontos = 0;
