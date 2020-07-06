@@ -341,7 +341,7 @@ int main(void) // FUNÇÃO PRINCIPAL
         printf ("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n");
 
         
-        while (escolha_menu < 1 || escolha_menu > 4){
+        while (escolha_menu < 1 || escolha_menu > 4){ // PROTEÇÃO CONTRA VALORES DIFERENTES
             printf("Digite sua escolha: ");
             scanf("%s", prot);
 
@@ -402,7 +402,7 @@ int main(void) // FUNÇÃO PRINCIPAL
 
                     p.player_pontos += carta;
 
-                    if (p.player_pontos == 21)
+                    if (p.player_pontos == 21)  // IMPRIME A SITAÇÃO DO PLAYER
                     {
                         printf("Vinte e UM!! Você venceu a rodada!!\n");
                         p.placar_player++;
@@ -460,7 +460,7 @@ int main(void) // FUNÇÃO PRINCIPAL
 
                     p.pc_pontos += carta;
 
-                    if (p.pc_pontos == 21)
+                    if (p.pc_pontos == 21)  // VERIFICA A SITUAÇÃO DAS CARTAS DO COMPUTADOR
                     {
                         printf("A soma dos pontos deu Vinte e Um. Ganhei!! :D\n");
                         p.placar_bot++;
@@ -480,7 +480,7 @@ int main(void) // FUNÇÃO PRINCIPAL
                     }
                 }
 
-                if (p.player_pontos <= 21){
+                if (p.player_pontos <= 21){ // ADICIONA X AOS PONTOS DO PLAYER (OS PONTOS DO RANKING) CASO TENHA OS REQUISITOS
                     if ((p.player_pontos > p.pc_pontos) & (p.pc_pontos < 21)){
                         i = p.player_pontos - 16;
                         p.ranking_pontos += i;
@@ -535,13 +535,13 @@ int main(void) // FUNÇÃO PRINCIPAL
 
             case 2:
             system ("clear");
-            ranking(2, 0, 0, nm);
+            ranking(2, 0, 0, nm); // EXECUTA A FUNÇÃO PASSANDO 2 COMO VALOR DE OPÇÃO, ASSIM IMPRIME O RANKING
             printf ("Insira qualquer coisa para retornar ao menu\n");
             scanf("%d", &i);
             break;
             
             case 3:
-            system ("clear");
+            system ("clear"); // IMPRIME AS REGRAS
                 printf ("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
                 printf ("█                                                                             █\n");
                 printf ("█                               -=-[ Regras ]-=-                              █\n");
@@ -586,7 +586,7 @@ int main(void) // FUNÇÃO PRINCIPAL
             break;
 
             case 4:
-            system ("clear");
+            system ("clear"); // ENCERRA O GAME
             printf ("\n\nObrigado por Jogar!\n\n");
             break;
         }
