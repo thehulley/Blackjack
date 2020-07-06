@@ -77,7 +77,7 @@ int naipes (int carta) {
     return 0;
 }
 
-int ranking(int opcao, int pontuacao, int rodadas, char nome[6]) // FUNÇÃO PARA LER E GRAVAR O ARQUIVO RANKING.TXT
+int ranking(int opcao, int pontuacao, int rodadas, char *nome[6]) // FUNÇÃO PARA LER E GRAVAR O ARQUIVO RANKING.TXT
 {
     char ranking[200], *aux[5][1], *matriz[5][3], *mat[5][3]; 
     char* token;
@@ -169,7 +169,7 @@ int ranking(int opcao, int pontuacao, int rodadas, char nome[6]) // FUNÇÃO PAR
         sprintf(pts, "%i", pontuacao);  // TRANSFORMA A PONTUACAO EM UMA STRING COM O NOME PTS
 
         mat[n][1] = pts;
-        mat[n][2] = nome;
+        mat[n][2] = *nome;
 
         for (i=0; i<5; i++){  // PROGRAMA COMEÇA A CONCATENAR A STRING ATUALIZADO, QUE SERÁ ESCRITA NO ARQUIVO DO RANKING
             if (i == 0){
@@ -284,7 +284,7 @@ int ranking(int opcao, int pontuacao, int rodadas, char nome[6]) // FUNÇÃO PAR
     return c; // RETORNA A ULTIMA PONTUACAO DO RANKING PARA COMPARAÇÃO DE PONTOS
 }
 
-int contarcaracteres(char nome[5]){
+int contarcaracteres(char nome[6]){
     int i;
 
     for(i=0;i<10;i++)
@@ -294,7 +294,6 @@ int contarcaracteres(char nome[5]){
       }
     }
 
-    printf ("%d", i);
     return i;
 }
 
@@ -302,19 +301,18 @@ int main(void) // FUNÇÃO PRINCIPAL
 {
     int escolha_menu, sair_outros_menus, i, c, menor;
     int baralho[13] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10}, carta, rodada, escolha_as;
-    char prot[2], mais_uma, *mat[5][3], j;
+    char prot[2], mais_uma, j;
 
-    int n, rodadas, pontuacao;
-    char pts[3], nome[6], atualizado[500];
-    char desc[] = "Não altere esse arquivo! Alteração do mesmo poderá ocasionar no mau funcionamento do mesmo\n|";
+    int n;
+    char nome[6], *nm[6];
 
-    menor = ranking(0, 0, 0, " ");
+    menor = ranking(0, 0, 0, nm);
 
     escolha_menu = 0;
 
     while (escolha_menu != 4){
-
-        system (""); //SE PRECISAR OLHAR OS ERROS NO TERMINAL, APAGUE ISSO
+        
+        system ("clear"); //SE PRECISAR OLHAR OS ERROS NO TERMINAL, APAGUE ISSO
         escolha_menu = 0;
 
         setlocale(LC_ALL, "Portuguese");
@@ -363,7 +361,7 @@ int main(void) // FUNÇÃO PRINCIPAL
 
             struct pontos p; //CHAMA AS VARIÁVEIS DE PONTOS
             p.ranking_pontos = p.placar_bot = p.placar_player = 0;
-            for (rodada = 0; rodada < 10; rodada++)
+            for (rodada = 0; rodada < 2; rodada++)
             {
                 p.pc_pontos = 0;
                 p.player_pontos = 0;
@@ -412,7 +410,7 @@ int main(void) // FUNÇÃO PRINCIPAL
                     }
                     else if (p.player_pontos > 21)
                     {
-                        printf("\n\nA soma das cartas foi maior que 21! \n\n Você estorou! :(\n");
+                        printf("\n\nA soma das cartas foi maior que 21! \n\nVocê estorou! :(\n");
                         p.placar_bot++;
                         break;
                     }
@@ -513,24 +511,31 @@ int main(void) // FUNÇÃO PRINCIPAL
             }
             printf("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n\n");
 
-            if (p.ranking_pontos > menor){
-                printf("\nParabéns, você possui pontos suficientes para entrar no ranking\nDigite abaixo o seu nome  (máximo 5 caracteres)\n");
+            if (p.ranking_pontos > menor){  // PARTE QUE VERIFICA SE O PLAYER POSSUI PONTUAÇÃO PARA ENTRAR NO RANKING
+                printf("\nParabéns, você possui pontos suficientes para entrar no ranking\nDigite abaixo o seu nome - (máximo 5 caracteres)\n");
                 scanf("%s", nome);
 
-                if (j > 5){
+                j = contarcaracteres(nome);
+
+                if (j > 4){ // PROTEÇÃO CONTA NOMES MAIORES QUE 5 CARACTERES
                     printf("\nDigite um nome com até 5 caracteres\n");
                     scanf("%s", nome);
 
                     j = contarcaracteres(nome);
                 }
+                *nm = nome;
 
-                ranking(1, p.ranking_pontos, p.placar_player, nome);
+                ranking(1, p.ranking_pontos, p.placar_player, nm);
+            }
+            else{ // SE NÃO POSSUIR PONTUAÇÃO ESPERA O USUARIO RETORNAR AO MENU
+                printf ("Insira qualquer coisa para retornar ao menu\n");
+                scanf("%d", &i);
             }
             break;
 
             case 2:
             system ("clear");
-            ranking(2, 0, 0, " ");
+            ranking(2, 0, 0, nm);
             printf ("Insira qualquer coisa para retornar ao menu\n");
             scanf("%d", &i);
             break;
