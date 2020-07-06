@@ -517,12 +517,23 @@ int main(void) // FUNÇÃO PRINCIPAL
 
                 j = contarcaracteres(nome);
 
-                if (j > 4){ // PROTEÇÃO CONTA NOMES MAIORES QUE 5 CARACTERES
+                while (j > 4){ // PROTEÇÃO CONTA NOMES MAIORES QUE 5 CARACTERES
                     printf("\nDigite um nome com até 5 caracteres\n");
                     scanf("%s", nome);
 
                     j = contarcaracteres(nome);
                 }
+
+                for (i=0; i<5; i++){  //PROTEÇÃO CONTRA BUGS NA GRAVAÇÃO E LEITURA DO ARQUIVO
+                    if ((nome[i] == '|') || (nome[i] == '-')){
+                        nome[i] = ' ';
+                    }
+                }
+
+                for (i=j+1; i<5; i++){ // CONFIGUTAÇÃO VISUAL
+                    nome[i] = ' ';
+                }
+
                 *nm = nome;
 
                 ranking(1, p.ranking_pontos, p.placar_player, nm);
