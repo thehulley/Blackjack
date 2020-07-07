@@ -602,6 +602,5 @@ int main(void) // FUNÇÃO PRINCIPAL
             break;
         }
     }
-    
     return 0;
 }
